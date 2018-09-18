@@ -1,0 +1,415 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+body{
+	background-color:#f0f3ef;
+}
+.navbg{
+	background-color: #e3e4e5;
+}
+.nav{
+	width:1190px;
+	margin:0px auto;
+	height: 31px;
+	line-height: 31px;
+	color: #999;
+	font-size: 12px;
+}
+.navleft{
+	float: left;
+	margin-left: 200px;
+}
+.navleft #navpo{
+	color: #f10210;
+	font-size: 13px;
+	display: inline-block;
+	height: 31px;
+	width: 50px;
+	line-height: 31px;
+	position: relative;
+	top:0px;
+	border: 0px;
+}
+.navleft #navpo:hover{
+	background-color: white;
+}
+#navpo span {
+	color: #999;
+
+}
+.nav .outul{
+
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.outul>li:hover .inul{
+	display: block;
+	z-index: 10;
+}
+.outul:hover>li{
+	background-color: white;
+}
+.nav .inul{
+	background-color: white;
+	list-style: none;
+	position: absolute;
+	top: 31px;
+	display: none;
+}
+.nav .inul a{
+	margin:15px 20px 15px 15px;
+	color: #999;
+	text-decoration: none;
+}
+.nav .inul a:hover{
+	color: #f10215;
+}
+.navright{
+	float: right;
+	margin-left: 100px;
+}
+.navright a{
+	color: #999;
+	text-decoration: none;
+}
+.navright a:hover{
+	color: #f10215;
+}
+.navright .line{
+	color: #ccc;
+	margin: 0px 8px;
+}
+.cleardiv{
+	clear: both;
+}
+.dsec{
+	width: 1200px;
+	margin: 0px auto;
+}
+.logoimg{
+	width: 185px;
+	height: 170px;
+	background-image: url(../img/logo.head.png);
+	background-position-x: -5px;
+	position: absolute;
+	top: 0px;
+	box-shadow: 0px 0px 0px 2px rgba(0,0,0,.2);
+}
+.secmid{
+	width: 1000px;
+	margin-left: 230px;
+}
+.search{
+	margin-left: 60px;
+	margin-top:25px;
+	display: inline-block;
+}
+.search .searchgroup{
+	background-color: white;
+	display: inline-block;
+	position: relative;
+}
+.searchgroup .searchinput{
+	height: 35px;
+	width:465px ;
+	border: 0px;
+	position: relative;
+	top: -5px;
+}
+
+.search #searimg{
+	font-size: 18px;
+	background-color: #f10215;
+	display: inline-block;
+	padding: 10px 16px;
+	color: white;
+	position: relative;
+	right: 4px;
+	border-width:0px;
+}
+.search .undertext{
+	margin-top: 5px;
+}
+.search .undertext a{
+	font-size: 12px;
+	color: #999 ;
+	text-decoration: none;
+	margin-right: 10px;
+}
+.search .undertext .una:hover{
+	color:#C81623 ;
+}
+.search .undertext .unae{
+	color:#f10215 ;
+}
+.search .undertext .unae:hover{
+	color:#C81623;
+}
+.cartgroup{
+	display: inline-block;
+	padding: 8px 40px;
+	background-color: white;
+	margin-left: 30px;
+	position: relative;
+	top: -35px;
+}
+.cartgroup a{
+	font-size: 12px;
+	color:#f10215;
+	text-decoration: none;
+}
+.cartgroup span{
+	color: #f10215;
+}
+.cartgroup .bubble{
+	font-size: 12px;
+	background-color:#f10215 ;
+	padding: 1px 4px 0px 4px;
+	color: white;
+	border-radius: 25px;
+	position: relative;
+	top: -4px;
+}
+.undermenu{
+	margin-top: 20px;
+}
+.undermenu a{
+	text-decoration: none;
+	color: #333;
+	font-size: 14px;
+	margin-right: 27px;
+}
+.undermenu a:hover{
+	color:#C81623;
+}
+.dthir{
+	width:1200px;
+	margin: 0px auto;
+	position: relative;
+}
+.dthirone{	
+	background-color: white;
+	display: inline-block;
+	width: 185px;
+	position: relative;
+	top: 2px;
+}
+.dthirone .outul{
+	list-style: none;
+	color: #626262;
+	font-size: 14px;
+	position: relative;
+	left: 0px;
+}
+.dthirone .outul a{	
+	text-decoration:none;
+}
+.dthirone .outul>li{	
+	width: 185px;
+	height: 35px;
+	line-height: 35px;
+	
+}
+.dthirone .outul>li>a{
+	display: inline-block;
+	margin-left: 20px;
+	color:#626262;
+}
+.dthirone .outul>li:hover{
+	background-color: #999;
+}
+.dthirone .inul{
+	width: 900px;
+	height:600px;
+	position: absolute;
+	list-style: none;
+	background-color: white;
+	left: 185px;
+	top: -8px;
+	display: none;
+	
+}
+.dthirone .outul>li:hover .inul{
+	display: block;
+	z-index: 10;
+}
+.dthirtwo{
+	display: inline-block;
+	position: absolute;
+	margin-left: 10px;
+	top: 20px;
+	width: 590px;
+	height: 470px;
+}
+.dthirtwo img{
+	position: absolute;
+	top: 0px;
+}
+.dthirtwo #last{
+	height: 40px;
+	width: 25px;
+	position: absolute;
+	top: 235px;
+	background-color: rgba(255,255,255,0.15);
+	color: rgba(255,255,255,0.3);
+	border: 0px;
+}
+.dthirtwo #next{
+	height: 40px;
+	width: 25px;
+	position: absolute;
+	top: 235px;
+	left: 565px;
+	background-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.3);
+	border: 0px;    
+}
+.dthirtwo .dypoint{
+	position: absolute;
+	top: 440px;
+	left: 20px;
+}
+.dthirtwo .dypoint i{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+	border: 2px solid #b9beba;
+}
+
+.dthirthree{
+	display: inline-block;
+	width: 190px;
+	margin-left: 620px;
+	margin-top: 10px;
+	
+}
+.dthirthree img{
+	margin-top: 10px;
+}
+.dfourth{
+	width: 1200px;
+	margin: 30px auto 0px auto ;
+	position: relative;
+}
+.dfourth .dfourthone{
+	display: inline-block;
+}
+.dfourth .dfourthone .outa{
+	display: inline-block;
+	width: 190px;
+	height: 275px;
+	background-color: #e83632;
+	margin: 0px;
+	padding: 0px;
+	text-decoration:none;
+}
+.dfourth .dfourthone .outa:hover{
+	text-decoration: none;
+}
+.dfourthone .outa .firline{
+	color: white;
+	font-size: 34px;
+	margin-left:30px;
+	margin-top:50px;
+}
+.dfourthone .outa .secline{
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 20px;
+	margin-left:30px;
+}
+.dfourthone .outa i{
+	color: #fff;
+	font-size:40px;
+	margin-left:75px;
+}
+.dfourthone .outa .thirline{
+	color: #fff;
+	font-size: 16px;
+	margin-left:30px;
+	margin-top:10px;
+}
+.dfourthone .outa .time{
+	margin-left:20px;
+	margin-top:20px;
+}
+.dfourthone .outa span{
+	background-color:black;
+	padding:10px;
+	margin:0px 2px;
+	color:white;
+	font-size:20px;
+	font-weight:bold;
+}
+.dfourth .dfourthtwo{
+	margin-left: 0px;
+	width: 760px;
+	height: 275px;
+	display: inline-block;
+	background-color:white;
+    position: absolute;
+    left: 190px;
+    top: 0px;
+    overflow: hidden;
+}
+.dfourthtwo .groupone{
+	position: absolute;
+}
+.dfourthtwo .grouptwo{
+	position: absolute;
+	left: -760px;
+}
+.dfourthtwo .groupthree{
+	position: absolute;
+	left: 760px;
+}
+.dfourthtwo  div{
+	display: inline-block;
+	width: 190px;
+	height: 275px;
+	background-color: white;
+	margin: 0px;
+	padding: 0px;
+}
+.dfourthtwo .imgone{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.dfourthtwo .imgtwo{
+	position: absolute;
+	left: 190px;
+	top: 0px;
+}
+.dfourthtwo .imgthree{
+	position: absolute;
+	left: 380px;
+	top: 0px;
+}
+.dfourthtwo .imgfour{
+	position: absolute;
+	left: 570px;
+	top: 0px;
+}
+.dfourthtwo #lastgroup{
+	height: 40px;
+	width: 25px;
+	position: absolute;
+	top:130px;
+	background-color: rgba(0,0,0,0.3);
+	color: rgba(255,255,255,0.3);
+	border: 0px;
+}
+.dfourthtwo #nextgroup{
+	height: 40px;
+	width: 25px;
+	position: absolute;
+	top: 130px;
+	left: 735px;
+	background-color: rgba(0,0,0,0.3);
+	color: rgba(255,255,255,0.3);
+	border: 0px;    
+}
