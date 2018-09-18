@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.mapper.OrderMapper">
+	<insert id="insertO" parameterType="com.st.pojo.Oorder">
+		<selectKey keyProperty="onumber" resultType="String" order="BEFORE">
+			select UUID()
+		</selectKey>
+		insert into oorder (onumber,uid,totalPrice,aid)
+		values(#{onumber},#{uid},#{totalPrice},#{aid})
+	</insert>
+	<insert id="insertI" parameterType="com.st.pojo.Iorder">
+		insert into iorder (onumber,gid,gname,amount,singlePrice,totalPrice,img)
+		values(#{onumber},#{gid},#{gname},#{amount},#{singlePrice},#{totalPrice},#{img})
+	</insert>
+	<select id="getOrder" parameterType="com.st.pojo.Page" resultMap="order">
+		select * from oorder where uid=#{where.uid} order by time desc limit #{startRow},#{pageRows}
+	</select>
+	<select id="count" parameterType="com.st.pojo.Page" resultType="int">
+		select count(*) from oorder where uid=#{where.uid} 
+	</select>
+	<resultMap type="com.st.pojo.Oorder" id="order">
+		<id column="onumber" property="onumber"/>
+		<result column="time" property="time"/>
+		<result column="totalPrice" property="totalPrice"/>
+		<result column="aid" property="aid"/>
+		<association property="address" javaType="com.st.pojo.Address" column="aid" select="getAddress">			
+		</association>
+		<collection property="list" ofType="com.st.pojo.Iorder" select="getIorder" column="onumber">
+		</collection>		
+	</resultMap>
+	<select id="getIorder" parameterType="String" resultType="com.st.pojo.Iorder">
+		select * from iorder where onumber=#{param1}
+	</select>
+	<select id="getAddress" parameterType="int" resultType="com.st.pojo.Address">
+		select * from address where aid=#{param1}
+	</select>
+	<select id="getOneOrder" parameterType="com.st.pojo.Oorder" resultMap="order">
+		select * from oorder where onumber=#{onumber}
+	</select>
+	<select id="getAllOrder" parameterType="com.st.pojo.Page" resultMap="order">
+		select * from oorder order by time desc limit #{startRow},#{pageRows}
+	</select>
+	<select id="allOrderCount" resultType="int">
+		select count(*) from oorder 
+	</select>
+	<select id="queryOrderByDate" resultMap="order">
+		select * from oorder where time &lt;=#{end} and time &gt;=#{start} order by time desc limit #{page.startRow},#{page.pageRows}
+	</select>
+	<select id="countByDate" resultType="int" parameterType="Date">
+		select count(*) from oorder where time &lt;=#{end} and time &gt;=#{start}
+	</select>
+	<select id="latestOrders" resultType="com.st.pojo.Oorder">
+		select * from oorder order by time desc limit 0,6
+	</select>
+	<select id="selectByUid" parameterType="com.st.pojo.User" resultType="com.st.pojo.Oorder">
+		select * from oorder where uid=#{uid}
+	</select>
+</mapper>

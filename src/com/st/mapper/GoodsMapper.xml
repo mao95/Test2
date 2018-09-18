@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.mapper.GoodsMapper">
+	<insert id="insert" parameterType="HashMap">
+		insert into goods (name,dept,
+		<if test="price!=''">price,</if>
+		<if test="count!=''">count,</if>
+		<if test="bigtype!='' and bigtype!=null and bigtype!=0">bigtype,</if>
+		<if test="smalltype!='' and smalltype!=null and smalltype!=0">smalltype,</if>
+		img,state,bname) values(#{name},#{dept},		
+		<if test="price!=''">#{price},</if>
+		<if test="count!=''">#{count},</if>
+		<if test="bigtype!='' and bigtype!=null and bigtype!=0">#{bigtype},</if>
+		<if test="smalltype!='' and smalltype!=null and smalltype!=0">#{smalltype},</if>
+		#{img},#{state},#{bname})
+	</insert>
+	<update id="update" parameterType="HashMap">
+		update goods 
+		<set>
+			<if test="name!='' and name!=null">name=#{name},</if>
+			<if test="dept!='' and dept!=null">dept=#{dept},</if>
+			<if test="price!='' and price!=null">price=#{price},</if>
+			<if test="count!='' and count!=null">count=#{count},</if>
+			<if test="img!='' and img!=null">img=#{img},</if>
+			<if test="state!='' and state!=null">state=#{state},</if>
+			<if test="bname!='' and bname!=null">bname=#{bname},</if>
+			<if test="bigtype!='' and bigtype!=null and bigtype!=0">bigtype=#{bigtype},</if>
+			<if test="smalltype!='' and smalltype!=null and smalltype!=0">smalltype=#{smalltype},</if>
+		</set>
+		where gid=#{gid}
+	</update>
+	<select id="selectAllGoods" resultType="com.st.pojo.Goods" parameterType="com.st.pojo.Page">
+		select * from goods limit #{startRow},#{pageRows}
+	</select>
+	<select id="allGoodsCount" resultType="int" >
+		select count(*) from goods 
+	</select>
+	<select id="queryLike" resultType="com.st.pojo.Goods" parameterType="com.st.pojo.Page">
+		select * from goods 
+		<where>
+			<if test="where.name!='' and where.name!=null">
+				and name like '%${where.name}%'
+			</if>
+			<if test="where.dept!='' and where.dept!=null">
+				and dept like '%${where.dept}%'
+			</if>
+			<if test="where.bname!='' and where.bname!=null">
+				and bname like '%${where.bname}%'
+			</if>
+			<if test="where.bigtype!='' and where.bigtype!=null and where.bigtype!=0">
+				and bigtype = #{where.bigtype}
+			</if>
+			<if test="where.smalltype!='' and where.smalltype!=null and where.smalltype!=0">
+				and smalltype = #{where.smalltype}
+			</if>
+		</where>
+		limit #{startRow},#{pageRows}
+	</select>
+	<select id="likeGoodsCount" resultType="int" parameterType="com.st.pojo.Page">
+		select count(*) from goods 
+		<where>
+			<if test="where.name!='' and where.name!=null">
+				and name like '%${where.name}%'
+			</if>
+			<if test="where.dept!='' and where.dept!=null">
+				and dept like '%${where.dept}%'
+			</if>
+			<if test="where.bname!='' and where.bname!=null">
+				and bname like '%${where.bname}%'
+			</if>
+			<if test="where.bigtype!='' and where.bigtype!=null and where.bigtype!=0">
+				and bigtype = #{where.bigtype}
+			</if>
+			<if test="where.smalltype!='' and where.smalltype!=null and where.smalltype!=0">
+				and smalltype = #{where.smalltype}
+			</if>
+		</where>
+	</select>
+	<delete id="delete" parameterType="int">
+		delete from goods where gid=${value}
+	</delete>
+	<select id="selectByGid" parameterType="int" resultType="com.st.pojo.Goods">
+		select * from goods where gid=${value}
+	</select>
+	<update id="sell" parameterType="int">
+		update goods set count=count-#{param2},sales=sales+#{param2} where gid=#{param1}
+	</update>
+	<select id="allGoods" resultType="com.st.pojo.Goods">
+		select * from goods
+	</select>
+</mapper>

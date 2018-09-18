@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.st.mapper.ManagerMapper">
+  		<select id="login" parameterType="com.st.pojo.Manager" resultType="com.st.pojo.Manager">
+  			select * from manager where username=#{username} and password=#{password}
+  		</select>
+  		<update id="moPW" parameterType="com.st.pojo.Manager">
+  			update manager set password=#{password} where mid=#{mid}
+  		</update>
+  </mapper>

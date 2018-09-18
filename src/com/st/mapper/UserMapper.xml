@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.mapper.UserMapper">
+ 	<select id="login" parameterType="com.st.pojo.User" resultType="com.st.pojo.User">
+ 		select * from user where username=#{username} and password=#{password}
+ 	</select>
+ 	<select id="selectByName" parameterType="com.st.pojo.User" resultType="com.st.pojo.User">
+ 		select * from user where username=#{username} 
+ 	</select>
+ 	<insert id="register" parameterType="com.st.pojo.User">
+ 		insert into user (username,password,phone,realName,idNumber,sex,age)
+ 		values(#{username},#{password},#{phone},#{realName},#{idNumber},#{sex},#{age})
+ 	</insert>
+ 	<update id="update" parameterType="com.st.pojo.User">
+ 		update user 
+ 		<set>
+ 			<if test="phone!='' and phone!=null">phone=#{phone},</if>
+ 			<if test="realName!='' and realName!=null">realName=#{realName},</if>
+ 			<if test="idNumber!='' and idNumber!=null">idNumber=#{idNumber},</if>
+ 			<if test="sex!='' and sex!=null">sex=#{sex},</if>
+ 			<if test="age!=null and age!=''">age=#{age},</if>
+ 		</set>
+  		where uid=#{uid}
+ 	</update>
+ 	<update id="modifyPW">
+ 		update user set password=#{password} where uid=#{uid}
+ 	</update>
+ 	<update id="inCounter" parameterType="com.st.pojo.User">
+ 		update user set counter=counter+1 where username=#{username}
+ 	</update>
+ 	<update id="reCounter" parameterType="com.st.pojo.User">
+ 		update user set counter=0 where username=#{username}
+ 	</update>
+ 	<update id="moErrorDate" parameterType="com.st.pojo.User">
+ 		update user set errorDate=#{errorDate} where username=#{username}
+ 	</update>
+ 	<select id="selectAllUser" parameterType="com.st.pojo.Page" resultType="com.st.pojo.User">
+ 		select * from user limit #{startRow},#{pageRows}
+ 	</select>
+ 	<select	id="allUserCount" resultType="int">
+ 		select count(*) from user
+ 	</select>
+ 	<update id="moState" parameterType="com.st.pojo.User" >
+ 		update user	set state=#{state} where uid=#{uid}
+ 	</update>
+ 	<update id="pay" >
+		update user set balance=balance-#{param2} where uid=#{param1}
+	</update>
+	<select id="countUsers" resultType="int">
+		select count(*) from user
+	</select>
+	<update id="recharge">
+		update user set balance=balance+#{money} where uid=#{user.uid}
+	</update>
+</mapper>

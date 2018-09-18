@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.mapper.AddressMapper">
+	<select id="selectByUid" parameterType="int" resultType="com.st.pojo.Address">
+		select * from address where uid=${value}
+	</select>
+	<delete id="delete" parameterType="int" >
+		delete from address where aid=${value}
+	</delete>
+	<update id="update" parameterType="com.st.pojo.Address">
+		update address 
+		<set>
+		  	<if test="address!='' and address!=null">
+		  		address=#{address},
+		  	</if>
+		  	<if test="name!='' and name!=null">
+		  		name=#{name},
+		  	</if>
+		  	<if test="phone!='' and phone!=null">
+		  		phone=#{phone},
+		  	</if>
+		</set>
+		set address=#{address} where aid=#{aid}
+	</update>
+	<insert id="insert" parameterType="com.st.pojo.Address">
+		insert into address (uid,address,name,phone) values(#{uid},#{address},#{name},#{phone})
+	</insert>
+	<select id="selectAllAddress" parameterType="com.st.pojo.Page" resultType="com.st.pojo.Address">
+		select * from address where uid=#{where.uid} limit #{startRow},#{pageRows}
+	</select>
+	<select id="allAddressCount" resultType="int" parameterType="com.st.pojo.Page" >
+		select count(*)	from address where uid=#{where.uid}
+	</select>
+</mapper>
